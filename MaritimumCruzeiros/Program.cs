@@ -3,7 +3,6 @@ using MaritimumCruzeiros.Data;
 using MaritimumCruzeiros.Services;
 using MaritimumCruzeiros.Services.Interfaces;
 using Microsoft.EntityFrameworkCore;
-using MaritimumCruzeiros.Utils;
 using MaritimumCruzeiros.Helpers;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -30,8 +29,7 @@ builder.Services.AddScoped<ITipoTripulanteService, TipoTripulanteService>();
 builder.Services.AddScoped<ITripulanteService, TripulanteService>();
 
 var app = builder.Build();
-var scope = app.Services.CreateScope();
-await DataHelper.ManageDataAsync(scope.ServiceProvider);
+
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {

@@ -1,6 +1,6 @@
 ﻿using MySqlConnector;
 
-namespace MaritimumCruzeiros.Utils
+namespace MaritimumCruzeiros.Helpers
 {
     public static class ConnectionHelper
     {
