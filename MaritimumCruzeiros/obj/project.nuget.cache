@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "6cZTT4EeeAhhEDgS0QZopg5dIUHL6l9mnzsIvzrzCzgf9YGw/3HOkI9VWwjNl6dDUNu8iE3EHcCM36weVui/kA==",
+  "dgSpecHash": "CRzRuVVTbks/CnwapwKvfo1o7mGVSQ3fUX0vazT4Hxvy8svvYQQ/wECGh/Er7/D8VmCTK6DVuG89ApS8VvQjJA==",
   "success": true,
   "projectFilePath": "C:\\www\\dev\\Projects\\Personal\\MyProjects\\MaritimumCruzeiros\\backend\\MaritimumCruzeiros\\MaritimumCruzeiros.csproj",
   "expectedPackageFiles": [
@@ -33,6 +33,7 @@
     "C:\\Users\\au.assis\\.nuget\\packages\\microsoft.identitymodel.tokens\\6.8.0\\microsoft.identitymodel.tokens.6.8.0.nupkg.sha512",
     "C:\\Users\\au.assis\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
     "C:\\Users\\au.assis\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
+    "C:\\Users\\au.assis\\.nuget\\packages\\microsoft.visualstudio.azure.containers.tools.targets\\1.17.2\\microsoft.visualstudio.azure.containers.tools.targets.1.17.2.nupkg.sha512",
     "C:\\Users\\au.assis\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",
     "C:\\Users\\au.assis\\.nuget\\packages\\microsoft.win32.systemevents\\4.7.0\\microsoft.win32.systemevents.4.7.0.nupkg.sha512",
     "C:\\Users\\au.assis\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512",
