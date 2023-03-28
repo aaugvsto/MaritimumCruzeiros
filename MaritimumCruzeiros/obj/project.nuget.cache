@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "CRzRuVVTbks/CnwapwKvfo1o7mGVSQ3fUX0vazT4Hxvy8svvYQQ/wECGh/Er7/D8VmCTK6DVuG89ApS8VvQjJA==",
+  "dgSpecHash": "0bcGeGxx4LLMAyI/fMmMM1MG7hLqmM3M5+5uO1iHfcd5NLj9BBgsO2zW7DX1oDYAk4yHDnUrN07QEysHN2Lb4A==",
   "success": true,
   "projectFilePath": "C:\\www\\dev\\Projects\\Personal\\MyProjects\\MaritimumCruzeiros\\backend\\MaritimumCruzeiros\\MaritimumCruzeiros.csproj",
   "expectedPackageFiles": [
@@ -36,7 +36,9 @@
     "C:\\Users\\au.assis\\.nuget\\packages\\microsoft.visualstudio.azure.containers.tools.targets\\1.17.2\\microsoft.visualstudio.azure.containers.tools.targets.1.17.2.nupkg.sha512",
     "C:\\Users\\au.assis\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",
     "C:\\Users\\au.assis\\.nuget\\packages\\microsoft.win32.systemevents\\4.7.0\\microsoft.win32.systemevents.4.7.0.nupkg.sha512",
+    "C:\\Users\\au.assis\\.nuget\\packages\\mysqlconnector\\2.0.0\\mysqlconnector.2.0.0.nupkg.sha512",
     "C:\\Users\\au.assis\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512",
+    "C:\\Users\\au.assis\\.nuget\\packages\\pomelo.entityframeworkcore.mysql\\6.0.0\\pomelo.entityframeworkcore.mysql.6.0.0.nupkg.sha512",
     "C:\\Users\\au.assis\\.nuget\\packages\\swashbuckle.aspnetcore\\6.2.3\\swashbuckle.aspnetcore.6.2.3.nupkg.sha512",
     "C:\\Users\\au.assis\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.2.3\\swashbuckle.aspnetcore.swagger.6.2.3.nupkg.sha512",
     "C:\\Users\\au.assis\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.2.3\\swashbuckle.aspnetcore.swaggergen.6.2.3.nupkg.sha512",

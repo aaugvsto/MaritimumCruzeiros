@@ -13,7 +13,7 @@ namespace MaritimumCruzeiros.Data.Map
             builder.ToTable("NAVIOS").HasKey(n => n.Id);
             builder.Property(n => n.Id).HasColumnName("ID_NAVIO");
 
-            builder.Property(n => n.Nome).HasMaxLength(50).HasColumnName("NOME");
+            builder.Property(n => n.Nome).HasColumnName("NOME").IsRequired();
             builder.Property(n => n.CapacidadePessoas).IsRequired().HasColumnName("CAPACIDADE_PESSOAS");
 
             // Relações

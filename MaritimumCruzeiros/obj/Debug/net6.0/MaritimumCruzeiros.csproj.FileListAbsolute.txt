@@ -130,3 +130,5 @@ C:\www\dev\Projects\Personal\MyProjects\MaritimumCruzeiros\backend\MaritimumCruz
 C:\www\dev\Projects\Personal\MyProjects\MaritimumCruzeiros\backend\MaritimumCruzeiros\obj\Debug\net6.0\MaritimumCruzeiros.pdb
 C:\www\dev\Projects\Personal\MyProjects\MaritimumCruzeiros\backend\MaritimumCruzeiros\obj\Debug\net6.0\MaritimumCruzeiros.genruntimeconfig.cache
 C:\www\dev\Projects\Personal\MyProjects\MaritimumCruzeiros\backend\MaritimumCruzeiros\obj\Debug\net6.0\ref\MaritimumCruzeiros.dll
+C:\www\dev\Projects\Personal\MyProjects\MaritimumCruzeiros\backend\MaritimumCruzeiros\bin\Debug\net6.0\MySqlConnector.dll
+C:\www\dev\Projects\Personal\MyProjects\MaritimumCruzeiros\backend\MaritimumCruzeiros\bin\Debug\net6.0\Pomelo.EntityFrameworkCore.MySql.dll

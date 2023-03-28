@@ -3,6 +3,8 @@ using MaritimumCruzeiros.Data;
 using MaritimumCruzeiros.Services;
 using MaritimumCruzeiros.Services.Interfaces;
 using Microsoft.EntityFrameworkCore;
+using MaritimumCruzeiros.Utils;
+using MaritimumCruzeiros.Helpers;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,8 +15,9 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddDbContext<DBContext>(options => 
-options.UseSqlServer(builder.Configuration.GetConnectionString("ServerConnection")));
+builder.Services.AddDbContext<DBContext>(options =>
+                    options.UseMySql(ConnectionHelper.GetConnectionString(builder.Configuration),
+                    ServerVersion.Parse("10.4.22-MariaDB")));
 
 builder.Services.AddScoped<ICabineService, CabineService>();
 builder.Services.AddScoped<ICabineTripulanteService, CabineTripulanteService>();
@@ -27,7 +30,8 @@ builder.Services.AddScoped<ITipoTripulanteService, TipoTripulanteService>();
 builder.Services.AddScoped<ITripulanteService, TripulanteService>();
 
 var app = builder.Build();
-
+var scope = app.Services.CreateScope();
+await DataHelper.ManageDataAsync(scope.ServiceProvider);
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {

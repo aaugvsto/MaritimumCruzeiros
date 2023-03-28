@@ -2,9 +2,9 @@
 
 #nullable disable
 
-namespace CruzeirosEmporio.Migrations
+namespace MaritimumCruzeiros.Migrations
 {
-    public partial class DBAtt : Migration
+    public partial class Mysql2 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

@@ -3,44 +3,32 @@ using System;
 using MaritimumCruzeiros.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
-using Microsoft.EntityFrameworkCore.Metadata;
-using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
 
-namespace CruzeirosEmporio.Migrations
+namespace MaritimumCruzeiros.Migrations
 {
     [DbContext(typeof(DBContext))]
-    [Migration("20230317165348_DBRemap")]
-    partial class DBRemap
+    partial class DBContextModelSnapshot : ModelSnapshot
     {
-        protected override void BuildTargetModel(ModelBuilder modelBuilder)
+        protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("ProductVersion", "6.0.0")
-                .HasAnnotation("Relational:MaxIdentifierLength", 128);
-
-            SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
+                .HasAnnotation("Relational:MaxIdentifierLength", 64);
 
             modelBuilder.Entity("MaritimumCruzeiros.Models.Cabine", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int?>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasColumnName("ID_CABINE");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
                     b.Property<int>("CapacidadeMaxima")
                         .HasColumnType("int")
                         .HasColumnName("CAPACIDADE_MAXIMA");
-
-                    b.Property<bool?>("IndFechado")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("bit")
-                        .HasDefaultValue(false);
 
                     b.Property<int>("NavioId")
                         .HasColumnType("int")
@@ -48,12 +36,12 @@ namespace CruzeirosEmporio.Migrations
 
                     b.Property<string>("Numero")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)")
+                        .HasColumnType("longtext")
                         .HasColumnName("NUMERO");
 
                     b.Property<string>("Piso")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)")
+                        .HasColumnType("longtext")
                         .HasColumnName("PISO");
 
                     b.Property<int>("TipoCabineId")
@@ -71,12 +59,10 @@ namespace CruzeirosEmporio.Migrations
 
             modelBuilder.Entity("MaritimumCruzeiros.Models.CabineTripulante", b =>
                 {
-                    b.Property<int>("CabineTripulanteId")
+                    b.Property<int?>("CabineTripulanteId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasColumnName("ID_CABINE_TRIPULANTE");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CabineTripulanteId"), 1L, 1);
 
                     b.Property<int>("CabineId")
                         .HasColumnType("int")
@@ -103,23 +89,21 @@ namespace CruzeirosEmporio.Migrations
 
             modelBuilder.Entity("MaritimumCruzeiros.Models.Cruzeiro", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int?>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasColumnName("ID_CRUZEIRO");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
                     b.Property<DateTime>("DataChegada")
-                        .HasColumnType("datetime2")
+                        .HasColumnType("datetime(6)")
                         .HasColumnName("DATA_CHEGADA");
 
                     b.Property<DateTime>("DataPartida")
-                        .HasColumnType("datetime2")
+                        .HasColumnType("datetime(6)")
                         .HasColumnName("DATA_PARTIDA");
 
                     b.Property<string>("Descricao")
-                        .HasColumnType("nvarchar(max)")
+                        .HasColumnType("longtext")
                         .HasColumnName("DESCRICAO");
 
                     b.Property<int?>("NavioId")
@@ -130,7 +114,7 @@ namespace CruzeirosEmporio.Migrations
                     b.Property<string>("NomeExpedicao")
                         .IsRequired()
                         .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)")
+                        .HasColumnType("varchar(100)")
                         .HasColumnName("NOME_EXPEDICAO");
 
                     b.HasKey("Id");
@@ -142,20 +126,18 @@ namespace CruzeirosEmporio.Migrations
 
             modelBuilder.Entity("MaritimumCruzeiros.Models.Navio", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int?>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasColumnName("ID_NAVIO");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<int>("CapacidadePessoas")
                         .HasColumnType("int")
                         .HasColumnName("CAPACIDADE_PESSOAS");
 
                     b.Property<string>("Nome")
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)")
+                        .IsRequired()
+                        .HasColumnType("longtext")
                         .HasColumnName("NOME");
 
                     b.HasKey("Id");
@@ -170,11 +152,9 @@ namespace CruzeirosEmporio.Migrations
                         .HasColumnType("int")
                         .HasColumnName("ID_PESSOA");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int?>("Id"), 1L, 1);
-
                     b.Property<string>("Documento")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)")
+                        .HasColumnType("longtext")
                         .HasColumnName("DOCUMENTO");
 
                     b.Property<int>("Idade")
@@ -184,7 +164,7 @@ namespace CruzeirosEmporio.Migrations
                     b.Property<string>("Nome")
                         .IsRequired()
                         .HasMaxLength(255)
-                        .HasColumnType("nvarchar(255)")
+                        .HasColumnType("varchar(255)")
                         .HasColumnName("NOME");
 
                     b.Property<int>("SexoPessoaId")
@@ -200,16 +180,14 @@ namespace CruzeirosEmporio.Migrations
 
             modelBuilder.Entity("MaritimumCruzeiros.Models.SexoPessoa", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int?>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasColumnName("ID_SEXO_PESSOA");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
                     b.Property<string>("Sexo")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)")
+                        .HasColumnType("longtext")
                         .HasColumnName("SEXO");
 
                     b.HasKey("Id");
@@ -219,21 +197,19 @@ namespace CruzeirosEmporio.Migrations
 
             modelBuilder.Entity("MaritimumCruzeiros.Models.TipoCabine", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int?>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasColumnName("ID_TIPO_CABINE");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
                     b.Property<string>("Descricao")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)")
+                        .HasColumnType("longtext")
                         .HasColumnName("DESCRICAO");
 
                     b.Property<string>("Tipo")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)")
+                        .HasColumnType("longtext")
                         .HasColumnName("TIPO");
 
                     b.HasKey("Id");
@@ -243,15 +219,13 @@ namespace CruzeirosEmporio.Migrations
 
             modelBuilder.Entity("MaritimumCruzeiros.Models.TipoTripulante", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int?>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasColumnName("ID_TIPO_TRIPULANTE");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
                     b.Property<string>("Tipo")
-                        .HasColumnType("nvarchar(max)")
+                        .HasColumnType("longtext")
                         .HasColumnName("TIPO");
 
                     b.HasKey("Id");
@@ -265,8 +239,6 @@ namespace CruzeirosEmporio.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasColumnName("ID_TRIPULANTE");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int?>("Id"), 1L, 1);
 
                     b.Property<int?>("CabineTripulanteId")
                         .HasColumnType("int")
