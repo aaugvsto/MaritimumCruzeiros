@@ -2,6 +2,7 @@
 using MaritimumCruzeiros.Models;
 using MaritimumCruzeiros.Models.DTOs;
 using MaritimumCruzeiros.Services.Interfaces;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace MaritimumCruzeiros.Services
@@ -23,9 +24,11 @@ namespace MaritimumCruzeiros.Services
             {
                 Id = pessoaId,
                 Nome = pessoaDTO.Nome,
+                Email = pessoaDTO.Email,
                 Idade = pessoaDTO.Idade,
                 SexoPessoaId = pessoaDTO.SexoPessoaId,
-                Documento = pessoaDTO.Documento
+                Documento = pessoaDTO.Documento,
+                Senha = pessoaDTO.Senha
             };
 
             return pessoa;
@@ -94,11 +97,40 @@ namespace MaritimumCruzeiros.Services
             }
         }
 
+        public async Task<Pessoa?> GetByEmail(string email)
+        {
+            try
+            {
+                return await _context.Pessoas.FirstAsync(x => x.Email == email);
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
         public async Task<Pessoa?> GetById(int id)
         {
             try
             {
                 return await _context.Pessoas.FirstOrDefaultAsync(p => p.Id == id);
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
+        public async Task<Pessoa?> Login(string email, string password)
+        {
+            try
+            {
+                var user = await GetByEmail(email);
+
+                if (user != null)
+                    return user.Senha == password ? user : null;
+
+                return null;
             }
             catch
             {

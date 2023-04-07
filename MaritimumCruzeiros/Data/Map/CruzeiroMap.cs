@@ -18,6 +18,7 @@ namespace MaritimumCruzeiros.Data.Map
             builder.Property(c => c.DataChegada).IsRequired().HasColumnName("DATA_CHEGADA");
             builder.Property(c => c.Descricao).HasColumnName("DESCRICAO");
             builder.Property(c => c.NavioId).IsRequired().HasColumnName("ID_NAVIO");
+            builder.Property(c => c.Preco).HasColumnName("PRECO").IsRequired();
 
             // Relações
 

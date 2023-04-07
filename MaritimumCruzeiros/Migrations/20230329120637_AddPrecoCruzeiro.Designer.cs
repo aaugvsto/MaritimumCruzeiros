@@ -3,6 +3,7 @@ using System;
 using MaritimumCruzeiros.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MaritimumCruzeiros.Migrations
 {
     [DbContext(typeof(DBContext))]
-    partial class DBContextModelSnapshot : ModelSnapshot
+    [Migration("20230329120637_AddPrecoCruzeiro")]
+    partial class AddPrecoCruzeiro
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -162,11 +164,6 @@ namespace MaritimumCruzeiros.Migrations
                         .HasColumnType("longtext")
                         .HasColumnName("DOCUMENTO");
 
-                    b.Property<string>("Email")
-                        .IsRequired()
-                        .HasColumnType("longtext")
-                        .HasColumnName("EMAIL");
-
                     b.Property<int>("Idade")
                         .HasColumnType("int")
                         .HasColumnName("IDADE");
@@ -176,11 +173,6 @@ namespace MaritimumCruzeiros.Migrations
                         .HasMaxLength(255)
                         .HasColumnType("varchar(255)")
                         .HasColumnName("NOME");
-
-                    b.Property<string>("Senha")
-                        .IsRequired()
-                        .HasColumnType("longtext")
-                        .HasColumnName("SENHA");
 
                     b.Property<int>("SexoPessoaId")
                         .HasColumnType("int")

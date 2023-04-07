@@ -39,6 +39,28 @@ namespace MaritimumCruzeiros.Controllers
             return NotFound(null);
         }
 
+        [HttpGet("GetByEmail")]
+        public async Task<ActionResult<Pessoa?>> GetByEmail(string email)
+        {
+            var pessoa = await _pessoaService.GetByEmail(email);
+
+            if (pessoa != null)
+                return Ok(pessoa);
+
+            return NotFound(null);
+        }
+
+        [HttpGet("Login")]
+        public async Task<ActionResult<Pessoa?>> Login(string email, string password)
+        {
+            var pessoa = await _pessoaService.Login(email, password);
+
+            if (pessoa != null)
+                return Ok(pessoa);
+
+            return NotFound(null);
+        }
+
         [HttpPost("CreateOrUpdate")]
         public async Task<ActionResult<bool>> CreateOrUpdate([FromBody] PessoaDTO pessoaDTO)
         {

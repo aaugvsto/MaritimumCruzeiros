@@ -11,6 +11,7 @@ namespace MaritimumCruzeiros.Models
         public DateTime DataChegada { get; set; }
         public string? Descricao { get; set; }
         public int? NavioId { get; set; }
+        public double? Preco { get; set; }
 
         public virtual ICollection<Tripulante>? Tripulantes { get; set; }
         public virtual Navio? Navio { get; set; }

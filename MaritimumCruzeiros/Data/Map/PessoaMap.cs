@@ -14,8 +14,10 @@ namespace MaritimumCruzeiros.Data.Map
 
             builder.Property(p => p.Nome).IsRequired().HasMaxLength(255).HasColumnName("NOME");
             builder.Property(P => P.Idade).IsRequired().HasColumnName("IDADE");
+            builder.Property(P => P.Email).IsRequired().HasColumnName("EMAIL");
             builder.Property(p => p.SexoPessoaId).IsRequired().HasColumnName("ID_SEXO_PESSOA");
             builder.Property(p => p.Documento).IsRequired().HasColumnName("DOCUMENTO");
+            builder.Property(p => p.Senha).IsRequired().HasColumnName("SENHA");
 
             // Relações
 
