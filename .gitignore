@@ -13,8 +13,8 @@
 *.user
 *.userosscache
 *.sln.docstates
-MaritimumCruzeiros/appsettings.development.json
-MaritimumCruzeiros/appsettings.json
+*MaritimumCruzeiros/appsettings.development.json
+*MaritimumCruzeiros/appsettings.json
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
