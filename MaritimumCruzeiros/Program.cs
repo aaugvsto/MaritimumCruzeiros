@@ -28,6 +28,8 @@ builder.Services.AddScoped<ITipoCabineService, TipoCabineService>();
 builder.Services.AddScoped<ITipoTripulanteService, TipoTripulanteService>();
 builder.Services.AddScoped<ITripulanteService, TripulanteService>();
 builder.Services.AddScoped<ICupomService, CupomService>();
+builder.Services.AddScoped<ITransacaoService, TransacaoService>();
+builder.Services.AddScoped<IPassagemService, PassagemService>();
 
 var app = builder.Build();
 

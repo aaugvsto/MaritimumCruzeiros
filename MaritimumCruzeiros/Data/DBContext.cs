@@ -17,6 +17,8 @@ namespace MaritimumCruzeiros.Data
         public DbSet<Pessoa> Pessoas => Set<Pessoa>();
         public DbSet<TipoCabine> TiposCabine => Set<TipoCabine>();
         public DbSet<Cupom> Cupons => Set<Cupom>();
+        public DbSet<Transacao> Transacoes => Set<Transacao>();
+        public DbSet<Passagem> Passagens => Set<Passagem>();
 
         public DBContext(DbContextOptions options) : base(options)
         {
@@ -34,6 +36,8 @@ namespace MaritimumCruzeiros.Data
             modelBuilder.ApplyConfiguration(new TripulanteMap());
             modelBuilder.ApplyConfiguration(new CabineTripulanteMap());
             modelBuilder.ApplyConfiguration(new CupomMap());
+            modelBuilder.ApplyConfiguration(new TransacaoMap());
+            modelBuilder.ApplyConfiguration(new PassagensMap());
 
             base.OnModelCreating(modelBuilder);
         }
