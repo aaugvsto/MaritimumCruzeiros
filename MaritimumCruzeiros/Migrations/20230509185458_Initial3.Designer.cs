@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MaritimumCruzeiros.Migrations
 {
     [DbContext(typeof(DBContext))]
-    [Migration("20230504162327_Initial")]
-    partial class Initial
+    [Migration("20230509185458_Initial3")]
+    partial class Initial3
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -131,6 +131,31 @@ namespace MaritimumCruzeiros.Migrations
                     b.ToTable("CRUZEIROS", (string)null);
                 });
 
+            modelBuilder.Entity("MaritimumCruzeiros.Models.Cupom", b =>
+                {
+                    b.Property<int>("IdCupom")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasColumnName("ID_CUPOM");
+
+                    b.Property<string>("Codigo")
+                        .IsRequired()
+                        .HasColumnType("varchar(255)")
+                        .HasColumnName("CODIGO");
+
+                    b.Property<double?>("PorcentagemDesconto")
+                        .IsRequired()
+                        .HasColumnType("double")
+                        .HasColumnName("PORCENTAGEM_DESCONTO");
+
+                    b.HasKey("IdCupom");
+
+                    b.HasIndex("Codigo")
+                        .IsUnique();
+
+                    b.ToTable("CUPONS", (string)null);
+                });
+
             modelBuilder.Entity("MaritimumCruzeiros.Models.Navio", b =>
                 {
                     b.Property<int?>("Id")
@@ -193,30 +218,6 @@ namespace MaritimumCruzeiros.Migrations
                     b.HasIndex("SexoPessoaId");
 
                     b.ToTable("PESSOAS", (string)null);
-                });
-
-            modelBuilder.Entity("MaritimumCruzeiros.Models.PessoaFavoritos", b =>
-                {
-                    b.Property<int?>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasColumnName("ID");
-
-                    b.Property<int>("CruzeiroId")
-                        .HasColumnType("int")
-                        .HasColumnName("ID_CRUZEIRO");
-
-                    b.Property<int>("PessoaId")
-                        .HasColumnType("int")
-                        .HasColumnName("ID_PESSOA");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("CruzeiroId");
-
-                    b.HasIndex("PessoaId");
-
-                    b.ToTable("PESSOA_FAVORITOS", (string)null);
                 });
 
             modelBuilder.Entity("MaritimumCruzeiros.Models.SexoPessoa", b =>
@@ -376,25 +377,6 @@ namespace MaritimumCruzeiros.Migrations
                         .IsRequired();
 
                     b.Navigation("SexoPessoa");
-                });
-
-            modelBuilder.Entity("MaritimumCruzeiros.Models.PessoaFavoritos", b =>
-                {
-                    b.HasOne("MaritimumCruzeiros.Models.Cruzeiro", "Cruzeiro")
-                        .WithMany()
-                        .HasForeignKey("CruzeiroId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("MaritimumCruzeiros.Models.Pessoa", "Pessoa")
-                        .WithMany()
-                        .HasForeignKey("PessoaId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Cruzeiro");
-
-                    b.Navigation("Pessoa");
                 });
 
             modelBuilder.Entity("MaritimumCruzeiros.Models.Tripulante", b =>

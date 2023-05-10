@@ -16,6 +16,7 @@ namespace MaritimumCruzeiros.Data
         public DbSet<TipoTripulante> TipoTripulante => Set<TipoTripulante>();
         public DbSet<Pessoa> Pessoas => Set<Pessoa>();
         public DbSet<TipoCabine> TiposCabine => Set<TipoCabine>();
+        public DbSet<Cupom> Cupons => Set<Cupom>();
 
         public DBContext(DbContextOptions options) : base(options)
         {
@@ -32,6 +33,7 @@ namespace MaritimumCruzeiros.Data
             modelBuilder.ApplyConfiguration(new TipoTripulanteMap());
             modelBuilder.ApplyConfiguration(new TripulanteMap());
             modelBuilder.ApplyConfiguration(new CabineTripulanteMap());
+            modelBuilder.ApplyConfiguration(new CupomMap());
 
             base.OnModelCreating(modelBuilder);
         }

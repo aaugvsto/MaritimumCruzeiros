@@ -8,5 +8,6 @@
         public DateTime DataChegada { get; set; }
         public string? Descricao { get; set; }
         public int? NavioId { get; set; }
+        public double Preco { get; set; }
     }
 }

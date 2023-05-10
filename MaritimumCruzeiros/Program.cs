@@ -27,6 +27,7 @@ builder.Services.AddScoped<ISexoPessoaService, SexoPessoaService>();
 builder.Services.AddScoped<ITipoCabineService, TipoCabineService>();
 builder.Services.AddScoped<ITipoTripulanteService, TipoTripulanteService>();
 builder.Services.AddScoped<ITripulanteService, TripulanteService>();
+builder.Services.AddScoped<ICupomService, CupomService>();
 
 var app = builder.Build();
 

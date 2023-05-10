@@ -3,6 +3,7 @@ using System;
 using MaritimumCruzeiros.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MaritimumCruzeiros.Migrations
 {
     [DbContext(typeof(DBContext))]
-    partial class DBContextModelSnapshot : ModelSnapshot
+    [Migration("20230509173035_Initial")]
+    partial class Initial
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -133,12 +135,11 @@ namespace MaritimumCruzeiros.Migrations
                 {
                     b.Property<int>("IdCupom")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasColumnName("ID_CUPOM");
+                        .HasColumnType("int");
 
                     b.Property<string>("Codigo")
                         .IsRequired()
-                        .HasColumnType("varchar(255)")
+                        .HasColumnType("longtext")
                         .HasColumnName("CODIGO");
 
                     b.Property<double?>("PorcentagemDesconto")
@@ -146,10 +147,8 @@ namespace MaritimumCruzeiros.Migrations
                         .HasColumnType("double")
                         .HasColumnName("PORCENTAGEM_DESCONTO");
 
-                    b.HasKey("IdCupom");
-
-                    b.HasIndex("Codigo")
-                        .IsUnique();
+                    b.HasKey("IdCupom")
+                        .HasName("CUPOM_ID");
 
                     b.ToTable("CUPONS", (string)null);
                 });

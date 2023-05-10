@@ -26,6 +26,7 @@ namespace CruzeirosEmporio.Services
                 DataChegada = cruzeiroDTO.DataChegada,
                 Descricao = cruzeiroDTO.Descricao,
                 NavioId = cruzeiroDTO.NavioId,
+                Preco = cruzeiroDTO.Preco,
             };
 
             return cruzeiro;

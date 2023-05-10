@@ -14,6 +14,22 @@ namespace MaritimumCruzeiros.Migrations
                 .Annotation("MySql:CharSet", "utf8mb4");
 
             migrationBuilder.CreateTable(
+                name: "CUPONS",
+                columns: table => new
+                {
+                    IdCupom = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                    CODIGO = table.Column<string>(type: "longtext", nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    PORCENTAGEM_DESCONTO = table.Column<double>(type: "double", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("CUPOM_ID", x => x.IdCupom);
+                })
+                .Annotation("MySql:CharSet", "utf8mb4");
+
+            migrationBuilder.CreateTable(
                 name: "NAVIOS",
                 columns: table => new
                 {
@@ -165,33 +181,6 @@ namespace MaritimumCruzeiros.Migrations
                 .Annotation("MySql:CharSet", "utf8mb4");
 
             migrationBuilder.CreateTable(
-                name: "PESSOA_FAVORITOS",
-                columns: table => new
-                {
-                    ID = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
-                    ID_PESSOA = table.Column<int>(type: "int", nullable: false),
-                    ID_CRUZEIRO = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_PESSOA_FAVORITOS", x => x.ID);
-                    table.ForeignKey(
-                        name: "FK_PESSOA_FAVORITOS_CRUZEIROS_ID_CRUZEIRO",
-                        column: x => x.ID_CRUZEIRO,
-                        principalTable: "CRUZEIROS",
-                        principalColumn: "ID_CRUZEIRO",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_PESSOA_FAVORITOS_PESSOAS_ID_PESSOA",
-                        column: x => x.ID_PESSOA,
-                        principalTable: "PESSOAS",
-                        principalColumn: "ID_PESSOA",
-                        onDelete: ReferentialAction.Cascade);
-                })
-                .Annotation("MySql:CharSet", "utf8mb4");
-
-            migrationBuilder.CreateTable(
                 name: "CABINE_TRIPULANTE",
                 columns: table => new
                 {
@@ -290,16 +279,6 @@ namespace MaritimumCruzeiros.Migrations
                 column: "ID_NAVIO");
 
             migrationBuilder.CreateIndex(
-                name: "IX_PESSOA_FAVORITOS_ID_CRUZEIRO",
-                table: "PESSOA_FAVORITOS",
-                column: "ID_CRUZEIRO");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_PESSOA_FAVORITOS_ID_PESSOA",
-                table: "PESSOA_FAVORITOS",
-                column: "ID_PESSOA");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_PESSOAS_ID_SEXO_PESSOA",
                 table: "PESSOAS",
                 column: "ID_SEXO_PESSOA");
@@ -344,7 +323,7 @@ namespace MaritimumCruzeiros.Migrations
                 table: "CABINE_TRIPULANTE");
 
             migrationBuilder.DropTable(
-                name: "PESSOA_FAVORITOS");
+                name: "CUPONS");
 
             migrationBuilder.DropTable(
                 name: "CABINES");
