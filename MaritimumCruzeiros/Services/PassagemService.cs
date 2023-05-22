@@ -27,11 +27,11 @@ namespace MaritimumCruzeiros.Services
             };
         }
 
-        public async Task<bool> CreateOrUpdate(Passagem entity)
+        public async Task<bool> CreateOrUpdate(Passagem passagem)
         {
             try
             {
-                await _dbContext.Passagens.AddAsync(entity);
+                await _dbContext.Passagens.AddAsync(passagem);
                 await _dbContext.SaveChangesAsync();
                 return true;
             }
@@ -56,6 +56,19 @@ namespace MaritimumCruzeiros.Services
             catch
             {
                 return false;
+            }
+        }
+
+        public async Task<List<Passagem>> FindByEmail(string email)
+        {
+            try
+            {
+                List<Passagem> passagensUsuario = await _dbContext.Passagens.Where(p => p.PessoaCompradoraEmail == email || p.PessoaTitularEmail == email).ToListAsync();
+                return passagensUsuario;
+            }
+            catch
+            {
+                return new List<Passagem>();
             }
         }
 

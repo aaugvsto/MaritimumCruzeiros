@@ -14,8 +14,10 @@ namespace MaritimumCruzeiros.Data.Map
             builder.Property(x => x.Id).HasColumnName("ID_PASSAGEM");
             builder.Property(x => x.CruzeiroId).HasColumnName("CRUZEIRO_ID").IsRequired();
             builder.Property(x => x.PessoaCompradoraEmail).HasColumnName("EMAIL_PESSOA_COMPRADORA").IsRequired();
-            builder.Property(x => x.PessoaTitularEmail).HasColumnName("EMAIL_PESSOA_TITULAR").IsRequired();
-            builder.Property(x => x.NomeTitularDaPassagem).HasColumnName("NOME_TITULAR_PASSAGEN").IsRequired();
+            builder.Property(x => x.PessoaTitularEmail).HasColumnName("EMAIL_PESSOA_TITULAR");
+            builder.Property(x => x.NomeTitularDaPassagem).HasColumnName("NOME_TITULAR_PASSAGEN");
+            builder.Property(x => x.TitularCPF).HasColumnName("CPF_TITULAR_PASSAGEM");
+            builder.Property(x => x.NumeroPassaporte).HasColumnName("PASSAPORTE_TITULAR_PASSAGEM");
 
             builder.HasOne(x => x.Cruzeiro)
                 .WithMany()

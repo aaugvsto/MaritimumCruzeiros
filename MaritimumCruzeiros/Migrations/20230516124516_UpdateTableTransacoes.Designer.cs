@@ -3,6 +3,7 @@ using System;
 using MaritimumCruzeiros.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MaritimumCruzeiros.Migrations
 {
     [DbContext(typeof(DBContext))]
-    partial class DBContextModelSnapshot : ModelSnapshot
+    [Migration("20230516124516_UpdateTableTransacoes")]
+    partial class UpdateTableTransacoes
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -188,12 +190,12 @@ namespace MaritimumCruzeiros.Migrations
                         .HasColumnName("CRUZEIRO_ID");
 
                     b.Property<string>("NomeTitularDaPassagem")
+                        .IsRequired()
                         .HasColumnType("longtext")
                         .HasColumnName("NOME_TITULAR_PASSAGEN");
 
                     b.Property<string>("NumeroPassaporte")
-                        .HasColumnType("longtext")
-                        .HasColumnName("PASSAPORTE_TITULAR_PASSAGEM");
+                        .HasColumnType("longtext");
 
                     b.Property<string>("PessoaCompradoraEmail")
                         .IsRequired()
@@ -201,12 +203,12 @@ namespace MaritimumCruzeiros.Migrations
                         .HasColumnName("EMAIL_PESSOA_COMPRADORA");
 
                     b.Property<string>("PessoaTitularEmail")
+                        .IsRequired()
                         .HasColumnType("longtext")
                         .HasColumnName("EMAIL_PESSOA_TITULAR");
 
                     b.Property<string>("TitularCPF")
-                        .HasColumnType("longtext")
-                        .HasColumnName("CPF_TITULAR_PASSAGEM");
+                        .HasColumnType("longtext");
 
                     b.HasKey("Id");
 

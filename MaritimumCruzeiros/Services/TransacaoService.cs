@@ -33,6 +33,7 @@ namespace MaritimumCruzeiros.Services
         {
             try
             {
+                transacao.Resultado = "SUCESSO";
                 await _dbContext.Transacoes.AddAsync(transacao);
                 await _dbContext.SaveChangesAsync();
                 return true;
